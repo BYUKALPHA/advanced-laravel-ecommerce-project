@@ -1,0 +1,15 @@
+ADMIN
+
+
+url: admin/login
+
+Username: alphonso2009@gmail.com
+Password: alpha@123
+
+
+
+User
+
+url: login
+Username: alpha@gmail.com
+Password: alpha@123

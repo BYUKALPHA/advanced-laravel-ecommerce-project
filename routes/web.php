@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Frontend\IndexController;
+use App\Models\User;
+
+
+
+
+
+Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
+	Route::get('/login', [AdminController::class, 'loginForm']);
+	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
+});
+
+//admin main routes
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
+    return view('admin.index');
+})->name('dashboard');
+
+//admin all routes
+Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
+Route::get('/admin/Profile', [AdminProfileController::class, 'AdminProfile'])->name('admin.profile');
+Route::get('/admin/Profile/Edit', [AdminProfileController::class, 'AdminProfileEdit'])->name('admin.profile.edit');
+Route::post('/admin/Profile/store', [AdminProfileController::class, 'AdminProfileStore'])->name('admin.profile.store');
+Route::get('/admin/change/password', [AdminProfileController::class, 'AdminChangePassword'])->name('admin.change.password');
+Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdatePassword'])->name('update.change.password');
+
+//user all routes
+Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
+	  $id = Auth::user()->id;
+      $user = User::find($id);
+    return view('dashboard',compact('user'));
+})->name('dashboard');
+
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
+Route::get('/user/profile', [IndexController::class, 'UserProfile'])->name('user.profile');
+Route::post('/user/profile/Store', [IndexController::class, 'UserProfileStore'])->name('user.profile.store');
+Route::get('/change/password', [IndexController::class, 'UserChangePassword'])->name('change.password');
+Route::post('/user/password/Update', [IndexController::class, 'UserPasswordUpdate'])->name('user.password.update');
