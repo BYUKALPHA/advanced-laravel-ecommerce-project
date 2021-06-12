@@ -51,16 +51,7 @@
 								<input id="password_confirmation" type="password" name="password_confirmation" class="form-control" >
 							</div>
 							</div> <!-- /end col md 6 -->
-								</div>	<!-- /end row -->		
-							
-					
-					
-							
-						
-							
-
-
-					
+								</div>	<!-- /end row -->							
 				
 						<div class="text-xs-right">
 							<input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update">
