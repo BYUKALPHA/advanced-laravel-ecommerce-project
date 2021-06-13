@@ -9,7 +9,7 @@
         <section class="content">
 
   <div class="row">
-<div class="col-8">
+<div class="col-9">
 
  <div class="box">
                 <div class="box-header with-border">
@@ -21,9 +21,9 @@
                       <table id="example1" class="table table-bordered table-striped">
                         <thead style="color:yellow;">
                             <tr>
-                                <th>Category Icon</th>
-                                <th>Category English</th>
-                                <th>Category French</th>
+                                <th>Icon</th>
+                                <th>Category Engl.</th>
+                                <th>Category Fr</th>
                                 <th>Action</th>
                               
                             </tr>
@@ -58,7 +58,7 @@
 
 
 
-<div class="col-4">
+<div class="col-3">
 
  <div class="box">
                 <div class="box-header with-border">
