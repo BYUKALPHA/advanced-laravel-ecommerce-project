@@ -65,4 +65,17 @@ $notification = array(
 return redirect()->route('all.category')->with($notification);
 
     }//end method
+
+
+public function CategoryDelete($id){
+
+    Category::findOrFail($id)->delete();
+    $notification = array(
+'message' => 'Category deleted successfully',
+'alert-type' => 'success'
+);
+return redirect()->back()->with($notification);
+}//end method
+
+
 }
