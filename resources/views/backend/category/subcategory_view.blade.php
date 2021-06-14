@@ -79,10 +79,11 @@
  <form method="post" action="{{ route('subcategory.store') }}" >
         @csrf
 
+
      <div class="form-group">
     <h5>Category Select <span class="text-danger">*</span></h5>
     <div class="controls">
-        <select name="category_id" class="form-control"  >
+            <select name="category_id" class="form-control"  >
             <option value="" selected="" disabled="">Select Category</option>
             @foreach($categories as $category)
             <option value="{{ $category->id }}">{{ $category->category_name_en }}</option>  
@@ -90,9 +91,9 @@
         </select>
         @error('category_id') 
      <span class="text-danger">{{ $message }}</span>
-     @enderror
+     @enderror 
      </div>
-    </div>
+                            </div>
 
 
     <div class="form-group">
@@ -118,9 +119,9 @@
 
 
              <div class="text-xs-right">
-                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add New">                   
-            </div>
-   </form>
+    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add New">                   
+                        </div>
+                    </form>
 
 
 

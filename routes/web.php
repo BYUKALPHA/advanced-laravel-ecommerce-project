@@ -55,6 +55,8 @@ Route::post('/update', [BrandController::class, 'BrandUpdate'])->name('brand.upd
 Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
 
 });
+
+
 // Admin Category All Routes
 Route::prefix('category')->group(function(){
 Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
@@ -63,15 +65,27 @@ Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('cat
 Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
 Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
 
-});
+
 
 
 // Admin Subcategory All Routes
-Route::prefix('subcategory')->group(function(){
-Route::get('/view', [SubcategoryController::class, 'SubcategoryView'])->name('all.subcategory');
-Route::post('/store', [SubcategoryController::class, 'SubcategoryStore'])->name('subcategory.store');
-Route::get('/edit/{id}', [SubcategoryController::class, 'SubcategoryEdit'])->name('subcategory.edit');
-Route::post('/update', [SubcategoryController::class, 'SubcategoryUpdate'])->name('subcategory.update');
-Route::get('/delete/{id}', [SubcategoryController::class, 'SubcategoryDelete'])->name('subcategory.delete');
+
+Route::get('/subcat/view', [SubcategoryController::class, 'SubcategoryView'])->name('all.subcategory');
+Route::post('/subcat/store', [SubcategoryController::class, 'SubcategoryStore'])->name('subcategory.store');
+Route::get('/subcat/edit/{id}', [SubcategoryController::class, 'SubcategoryEdit'])->name('subcategory.edit');
+Route::post('/subcat/update', [SubcategoryController::class, 'SubcategoryUpdate'])->name('subcategory.update');
+Route::get('/subcat/delete/{id}', [SubcategoryController::class, 'SubcategoryDelete'])->name('subcategory.delete');
+
+
+// Admin Sub->Sub Category All Routes
+
+Route::get('/sub/sub/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
+Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']);
+
 
 });
+
+
+
+
+
