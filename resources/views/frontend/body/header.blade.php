@@ -6,16 +6,37 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-            <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
+
+          <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') Mon Compte @else My Account @endif
+            </a></li>
+
+             <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french')  Liste de souhaits @else Wishlist @endif
+            </a></li>
+           
+             <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') Mon panier @else My Cart @endif
+            </a></li>
+
+            <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') Vérifier @else Checkout @endif
+            </a></li>
 
 @auth 
-<li><a href="{{ route('user.profile') }}" target="_blank"><i class="icon fa fa-user"></i>User Profile</a></li>
-<li><a href="{{ route('user.logout') }}" target="_blank"><i class="fa fa-sign-out"></i>Logout</a></li>
+
+ <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') Profil de l'utilisateur @else User Profile @endif
+            </a></li>
+
+<li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') Se déconnecter @else Logout @endif
+            </a></li>
 @else
-<li><a href="{{ URL('login') }}" target="_blank"><i class="icon fa fa-lock"></i>Login/Register</a></li>
+
+   <li><a href="#"><i class="icon fa fa-user"></i>
+        @if(session()->get('language') == 'french') S'identifier/S'enregistrer @else Login/Register @endif
+            </a></li>
 @endauth
 
 
@@ -30,15 +51,18 @@
               <span class="value">USD </span><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">USD</a></li>
-                <li><a href="#">INR</a></li>
-                <li><a href="#">GBP</a></li>
+                <li><a href="#">UGX</a></li>           
               </ul>
             </li>
-            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
+           <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">
+@if(session()->get('language') == 'french') Francais @else Language @endif
+  </span><b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">English</a></li>
-                <li><a href="#">French</a></li>
-                <li><a href="#">German</a></li>
+                @if(session()->get('language') == 'french')       
+        <li><a href="{{ route('english.language') }}">English</a></li>
+        @else
+        <li><a href="{{ route('french.language') }}">Francais</a></li>
+         @endif
               </ul>
             </li>
           </ul>

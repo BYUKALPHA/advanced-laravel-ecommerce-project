@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Frontend\LanguageController;
 use App\Models\User;
 
 
@@ -114,6 +115,15 @@ Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('sli
 });  // end Middleware admin
 
 
+
+//// Frontend All Routes /////
+/// Multi Language All Routes ////
+
+Route::get('/language/french', [LanguageController::class, 'french'])->name('french.language');
+
+Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language'); 
+
+
 //user all routes
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
 	  $id = Auth::user()->id;
@@ -127,3 +137,5 @@ Route::get('/user/profile', [IndexController::class, 'UserProfile'])->name('user
 Route::post('/user/profile/Store', [IndexController::class, 'UserProfileStore'])->name('user.profile.store');
 Route::get('/change/password', [IndexController::class, 'UserChangePassword'])->name('change.password');
 Route::post('/user/password/Update', [IndexController::class, 'UserPasswordUpdate'])->name('user.password.update');
+
+
