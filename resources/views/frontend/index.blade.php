@@ -86,7 +86,8 @@ Home Oak Cafe Online Orders
 
         <!-- ============================ HOT DEALS ================================ -->
         <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
-          <h3 class="section-title">hot deals</h3>
+          <h3 class="section-title">
+            @if(session()->get('language') == 'french') Bonnes affaires @else hot deals @endif </h3>
           <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
 
       @foreach($hot_deals as $product)
@@ -143,7 +144,8 @@ Home Oak Cafe Online Orders
                   <div class="action">
                     <div class="add-cart-button btn-group">
                       <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                      <button class="btn btn-primary cart-btn" type="button">
+                          @if(session()->get('language') == 'french') Ajouter au panier @else Add to cart @endif</button>
                     </div>
                   </div>
                   <!-- /.action --> 
@@ -169,7 +171,8 @@ Home Oak Cafe Online Orders
         <!-- ====================== SPECIAL OFFER ============================ -->
         
         <div class="sidebar-widget outer-bottom-small wow fadeInUp">
-          <h3 class="section-title">Special Offer</h3>
+          <h3 class="section-title">
+           @if(session()->get('language') == 'french') Offre spéciale @else Special Offer @endif</h3>
           <div class="sidebar-widget-body outer-top-xs">
             <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
 
@@ -193,7 +196,7 @@ Home Oak Cafe Online Orders
         <!-- /.col -->
         <div class="col col-xs-7">
           <div class="product-info">
-            <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">@if(session()->get('language') == 'hindi') {{ $product->product_name_hin }} @else {{ $product->product_name_en }} @endif</a></h3>
+            <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif</a></h3>
             <div class="rating rateit-small"></div>
  <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span> </div>
             <!-- /.product-price --> 
@@ -233,7 +236,8 @@ Home Oak Cafe Online Orders
 
         <!-- ==================== PRODUCT TAGS =============================== -->
         <div class="sidebar-widget product-tag wow fadeInUp">
-          <h3 class="section-title">Product tags</h3>
+          <h3 class="section-title">
+           @if(session()->get('language') == 'french') Étiquettes de produits @else Product tags @endif</h3>
           <div class="sidebar-widget-body outer-top-xs">
             <div class="tag-list"> <a class="item" title="Phone" href="category.html">Phone</a> <a class="item active" title="Vest" href="category.html">Vest</a> <a class="item" title="Smartphone" href="category.html">Smartphone</a> <a class="item" title="Furniture" href="category.html">Furniture</a> <a class="item" title="T-shirt" href="category.html">T-shirt</a> <a class="item" title="Sweatpants" href="category.html">Sweatpants</a> <a class="item" title="Sneaker" href="category.html">Sneaker</a> <a class="item" title="Toys" href="category.html">Toys</a> <a class="item" title="Rose" href="category.html">Rose</a> </div>
             <!-- /.tag-list --> 
@@ -247,7 +251,8 @@ Home Oak Cafe Online Orders
         <!-- ============================= SPECIAL DEALS ========================= -->
         
         <div class="sidebar-widget outer-bottom-small wow fadeInUp">
-          <h3 class="section-title">Special Deals</h3>
+          <h3 class="section-title">
+            @if(session()->get('language') == 'french') Offres spéciales @else Special Deals @endif</h3>
           <div class="sidebar-widget-body outer-top-xs">
             <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
 
@@ -311,23 +316,27 @@ Home Oak Cafe Online Orders
 
         <!-- ===================================== NEWSLETTER ======================= -->
         <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small">
-          <h3 class="section-title">Newsletters</h3>
+          <h3 class="section-title">
+           @if(session()->get('language') == 'french') Bulletins d'information @else Newsletters @endif</h3>
           <div class="sidebar-widget-body outer-top-xs">
-            <p>Sign Up for Our Newsletter!</p>
+            <p>
+             @if(session()->get('language') == 'french') Inscrivez-vous à notre lettre d'information! @else Sign Up for Our Newsletter! @endif</p>
             <form>
               <div class="form-group">
-                <label class="sr-only" for="exampleInputEmail1">Email address</label>
+                <label class="sr-only" for="exampleInputEmail1">
+                  @if(session()->get('language') == 'french') Adresse e-mail @else Email address @endif</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
               </div>
-              <button class="btn btn-primary">Subscribe</button>
+              <button class="btn btn-primary">
+                @if(session()->get('language') == 'french') S'abonner @else Subscribe @endif</button>
             </form>
           </div>
           <!-- /.sidebar-widget-body --> 
         </div>
         <!-- /.sidebar-widget --> 
-        <!-- ============================================== NEWSLETTER: END ============================================== --> 
+        <!-- ================== NEWSLETTER: END ==================== --> 
         
-        <!-- ============================================== Testimonials============================================== -->
+        <!-- ======================== Testimonials======================== -->
         <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
           <div id="advertisement" class="advertisement">
             <div class="item">
@@ -357,7 +366,7 @@ Home Oak Cafe Online Orders
           <!-- /.owl-carousel --> 
         </div>
         
-        <!-- ============================================== Testimonials: END ============================================== -->
+        <!-- ====================== Testimonials: END ===================== -->
         
         <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
       </div>
@@ -397,9 +406,9 @@ Home Oak Cafe Online Orders
           <!-- /.owl-carousel --> 
         </div>
         
-        <!-- ========================================= SECTION – HERO : END ========================================= --> 
+        <!-- ============== SECTION – HERO : END ============================ --> 
         
-        <!-- ============================================== INFO BOXES ============================================== -->
+        <!-- ========================== INFO BOXES ============== -->
         <div class="info-boxes wow fadeInUp">
           <div class="info-boxes-inner">
             <div class="row">
@@ -456,7 +465,8 @@ Home Oak Cafe Online Orders
         <!-- ================= SCROLL TABS ================================== -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
           <div class="more-info-tab clearfix ">
-            <h3 class="new-product-title pull-left">New Products</h3>
+            <h3 class="new-product-title pull-left">
+              @if(session()->get('language') == 'french') Nouveaux produits @else New Products @endif</h3>
             <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
               <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">
                 @if(session()->get('language') == 'french') Tous @else All @endif</
@@ -473,13 +483,6 @@ Home Oak Cafe Online Orders
           <div class="tab-content outer-top-xs">
 
 
-
-
-
-
-
-
-
             <div class="tab-pane in active" id="all">
               <div class="product-slider">
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
@@ -494,7 +497,7 @@ Home Oak Cafe Online Orders
                           <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
+                          <div class="tag new"><span>@if(session()->get('language') == 'french') Nouveau @else New @endif</span></div>
                         </div>
                         <!-- /.product-image -->
                         
@@ -512,7 +515,7 @@ Home Oak Cafe Online Orders
                             <ul class="list-unstyled">
                               <li class="add-cart-button btn-group">
                                 <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'french') Ajouter au panier @else Add to cat @endif</button>
                               </li>
                               <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
                               <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
@@ -539,15 +542,6 @@ Home Oak Cafe Online Orders
             </div>
             <!-- /.tab-pane -->
             
-
-
-
-
-
-
-
-
-
 
 
 
@@ -606,7 +600,7 @@ Home Oak Cafe Online Orders
             <ul class="list-unstyled">
               <li class="add-cart-button btn-group">
                 <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'french') Ajouter au panier @else Add to cat @endif</button>
               </li>
               <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
               <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
@@ -627,7 +621,8 @@ Home Oak Cafe Online Orders
                   </div>
                   <!-- /.item -->
           @empty
-                  <h5 class="text-danger">No Product Found</h5>
+                  <h5 class="text-danger">
+                  @if(session()->get('language') == 'french') Aucun produit trouvé @else No Product Found @endif</h5>
 
                   @endforelse<!--  // end all optionproduct foreach  -->
 
@@ -671,13 +666,16 @@ Home Oak Cafe Online Orders
         </div>
         <!-- /.wide-banners --> 
 
-
-
         
-        <!-- ============================= WIDE PRODUCTS : END ================================== --> 
+        <!-- ============================= WIDE PRODUCTS : END =========================== --> 
+
+
+
+
         <!-- ============================ FEATURED PRODUCTS ================================= -->
         <section class="section featured-product wow fadeInUp">
-          <h3 class="section-title">Featured products</h3>
+          <h3 class="section-title">
+            @if(session()->get('language') == 'french') Produits populaires @else Featured products @endif</h3>
           <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
             
       @foreach($featured as $product)
@@ -708,7 +706,7 @@ Home Oak Cafe Online Orders
 
         <div class="product-info text-left">
           <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-@if(session()->get('language') == 'hindi') {{ $product->product_name_hin }} @else {{ $product->product_name_en }} @endif
+@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif
             </a></h3>
           <div class="rating rateit-small"></div>
           <div class="description"></div>
@@ -729,7 +727,8 @@ Home Oak Cafe Online Orders
             <ul class="list-unstyled">
               <li class="add-cart-button btn-group">
                 <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                <button class="btn btn-primary cart-btn" type="button">
+                 @if(session()->get('language') == 'french') Ajouter au panier @else Add to cart @endif</button>
               </li>
               <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
               <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
@@ -750,22 +749,277 @@ Home Oak Cafe Online Orders
       @endforeach
 
 
-
-
-
-
-
           
           <!-- /.home-owl-carousel --> 
         </section>
         <!-- /.section --> 
-        <!-- ============================================== FEATURED PRODUCTS : END ============================================== --> 
-        <!-- ============================================== WIDE PRODUCTS ============================================== -->
+        <!-- ====================== FEATURED PRODUCTS : END ====================== --> 
+
+
+
+
+<!-- == === skip_product_0 PRODUCTS == ==== -->
+
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">
+@if(session()->get('language') == 'french') {{ $skip_category_0->category_name_fr }} @else {{ $skip_category_0->category_name_en }} @endif
+            </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+
+
+            @foreach($skip_product_0 as $product)
+            <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
+                          <!-- /.image -->
+
+        @php
+        $amount = $product->selling_price - $product->discount_price;
+        $discount = ($amount/$product->selling_price) * 100;
+        @endphp                  
+
+          <div>
+            @if ($product->discount_price == NULL)
+            <div class="tag new"><span>new</span></div>
+            @else
+            <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+            @endif
+          </div>
+                         </div>
+
+                        <!-- /.product-image -->
+
+        <div class="product-info text-left">
+          <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
+@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif
+            </a></h3>
+          <div class="rating rateit-small"></div>
+          <div class="description"></div>
+
+         @if ($product->discount_price == NULL)
+    <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span>  </div>
+         @else
+ <div class="product-price"> <span class="price"> ${{ $product->discount_price }} </span> <span class="price-before-discount">$ {{ $product->selling_price }}</span> </div>
+         @endif
+
+
+          <!-- /.product-price --> 
+
+        </div>
+        <!-- /.product-info -->
+        <div class="cart clearfix animate-effect">
+          <div class="action">
+            <ul class="list-unstyled">
+              <li class="add-cart-button btn-group">
+                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'french') Ajouter au panier @else Add to cart @endif</button>
+              </li>
+              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+            </ul>
+          </div>
+          <!-- /.action --> 
+        </div>
+        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+            <!-- /.item -->
+            @endforeach
+
+
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+        <!-- /.section --> 
+        <!-- == ==== skip_product_0 PRODUCTS : END ==== === --> 
+
+
+
+
+
+
+
+<!-- == === skip_product_1 PRODUCTS == ==== -->
+
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">
+@if(session()->get('language') == 'french') {{ $skip_category_1->category_name_fr }} @else {{ $skip_category_1->category_name_en }} @endif
+            </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+
+
+            @foreach($skip_product_1 as $product)
+            <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
+                          <!-- /.image -->
+
+        @php
+        $amount = $product->selling_price - $product->discount_price;
+        $discount = ($amount/$product->selling_price) * 100;
+        @endphp                  
+
+          <div>
+            @if ($product->discount_price == NULL)
+            <div class="tag new"><span>new</span></div>
+            @else
+            <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+            @endif
+          </div>
+                         </div>
+
+                        <!-- /.product-image -->
+
+        <div class="product-info text-left">
+          <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
+@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif
+            </a></h3>
+          <div class="rating rateit-small"></div>
+          <div class="description"></div>
+
+         @if ($product->discount_price == NULL)
+    <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span>  </div>
+         @else
+ <div class="product-price"> <span class="price"> ${{ $product->discount_price }} </span> <span class="price-before-discount">$ {{ $product->selling_price }}</span> </div>
+         @endif
+
+
+          <!-- /.product-price --> 
+
+        </div>
+        <!-- /.product-info -->
+        <div class="cart clearfix animate-effect">
+          <div class="action">
+            <ul class="list-unstyled">
+              <li class="add-cart-button btn-group">
+                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'french') Ajouter au panier @else Add to cart @endif</button>
+              </li>
+              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+            </ul>
+          </div>
+          <!-- /.action --> 
+        </div>
+        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+            <!-- /.item -->
+            @endforeach
+
+
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+        <!-- /.section --> 
+        <!-- == ==== skip_product_1 PRODUCTS : END ==== === -->
+
+
+
+
+
+
+<!-- == === skip_brand_product_1 PRODUCTS == ==== -->
+
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">
+@if(session()->get('language') == 'french') {{ $skip_brand_1->brand_name_fr }} @else {{ $skip_brand_1->brand_name_en }} @endif
+            </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+
+
+            @foreach($skip_brand_product_1 as $product)
+            <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
+                          <!-- /.image -->
+
+        @php
+        $amount = $product->selling_price - $product->discount_price;
+        $discount = ($amount/$product->selling_price) * 100;
+        @endphp                  
+
+          <div>
+            @if ($product->discount_price == NULL)
+            <div class="tag new"><span>new</span></div>
+            @else
+            <div class="tag hot"><span>{{ round($discount) }}%</span></div>
+            @endif
+          </div>
+                         </div>
+
+                        <!-- /.product-image -->
+
+        <div class="product-info text-left">
+          <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
+@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif
+            </a></h3>
+          <div class="rating rateit-small"></div>
+          <div class="description"></div>
+
+         @if ($product->discount_price == NULL)
+    <div class="product-price"> <span class="price"> ${{ $product->selling_price }} </span>  </div>
+         @else
+ <div class="product-price"> <span class="price"> ${{ $product->discount_price }} </span> <span class="price-before-discount">$ {{ $product->selling_price }}</span> </div>
+         @endif
+
+
+          <!-- /.product-price --> 
+
+        </div>
+        <!-- /.product-info -->
+        <div class="cart clearfix animate-effect">
+          <div class="action">
+            <ul class="list-unstyled">
+              <li class="add-cart-button btn-group">
+                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                <button class="btn btn-primary cart-btn" type="button">@if(session()->get('language') == 'french') Ajouter au panier @else Add to cart @endif</button>
+              </li>
+              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+            </ul>
+          </div>
+          <!-- /.action --> 
+        </div>
+        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+            <!-- /.item -->
+            @endforeach
+
+
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+        <!-- /.section --> 
+        <!-- == ==== skip_brand_product_1 PRODUCTS : END ==== === -->
+
+
+
+        <!-- ============================ WIDE PRODUCTS ============================== -->
         <div class="wide-banners wow fadeInUp outer-bottom-xs">
           <div class="row">
             <div class="col-md-12">
               <div class="wide-banner cnt-strip">
-                <div class="image"> <img class="img-responsive" src="assets/images/banners/home-banner.jpg" alt=""> </div>
+                <div class="image"> <img class="img-responsive" src="{{ asset('frontend/assets/images/banners/home-banner.jpg')}}" alt=""> </div>
                 <div class="strip strip-text">
                   <div class="strip-inner">
                     <h2 class="text-right">New Mens Fashion<br>
@@ -785,11 +1039,15 @@ Home Oak Cafe Online Orders
           <!-- /.row --> 
         </div>
         <!-- /.wide-banners --> 
-        <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
-        <!-- ============================================== BEST SELLER ============================================== -->
+        <!-- ====================== WIDE PRODUCTS : END ========================= --> 
+
+
+
+        <!-- =========================== BEST SELLER ======================== -->
         
         <div class="best-deal wow fadeInUp outer-bottom-xs">
-          <h3 class="section-title">Best seller</h3>
+          <h3 class="section-title">Best seller
+          </h3>
           <div class="sidebar-widget-body outer-top-xs">
             <div class="owl-carousel best-seller custom-carousel owl-theme outer-top-xs">
               <div class="item">
@@ -1037,11 +1295,12 @@ Home Oak Cafe Online Orders
           <!-- /.sidebar-widget-body --> 
         </div>
         <!-- /.sidebar-widget --> 
-        <!-- ============================================== BEST SELLER : END ============================================== --> 
+        <!-- ===================== BEST SELLER : END ======================= --> 
         
-        <!-- ============================================== BLOG SLIDER ============================================== -->
+        <!-- ============================ BLOG SLIDER ============================== -->
         <section class="section latest-blog outer-bottom-vs wow fadeInUp">
-          <h3 class="section-title">latest form blog</h3>
+          <h3 class="section-title">
+            @if(session()->get('language') == 'french') Dernières nouvelles du blog @else latest from blog @endif</h3>
           <div class="blog-slider-container outer-top-xs">
             <div class="owl-carousel blog-slider custom-carousel">
               <div class="item">
@@ -1147,11 +1406,13 @@ Home Oak Cafe Online Orders
           <!-- /.blog-slider-container --> 
         </section>
         <!-- /.section --> 
-        <!-- ============================================== BLOG SLIDER : END ============================================== --> 
+        <!-- ======================= BLOG SLIDER : END ================== --> 
+
         
-        <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+        <!-- =================== New Arrivals ========================= -->
         <section class="section wow fadeInUp new-arriavls">
-          <h3 class="section-title">New Arrivals</h3>
+          <h3 class="section-title">
+          @if(session()->get('language') == 'french') Nouvelles Arrivées @else New Arrivals @endif</h3>
           <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
             <div class="item item-carousel">
               <div class="products">
@@ -1408,14 +1669,18 @@ Home Oak Cafe Online Orders
           <!-- /.home-owl-carousel --> 
         </section>
         <!-- /.section --> 
-        <!-- ============================================== FEATURED PRODUCTS : END ============================================== --> 
+        <!-- ====================== New Arrivals : END ============================== --> 
         
+
+
+
+
+
       </div>
-      <!-- /.homebanner-holder --> 
-      <!-- ============================================== CONTENT : END ============================================== --> 
+      <!-- /.homebanne======== CONTENT : END ==================== --> 
     </div>
     <!-- /.row --> 
-    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+    <!-- ===================== BRANDS CAROUSEL ============================ -->
    
 
 
