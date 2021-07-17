@@ -389,7 +389,6 @@ Home Oak Cafe Online Orders
                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
                   
 
-
          @foreach($products as $product)
                   <div class="item item-carousel">
                     <div class="products">
@@ -403,7 +402,7 @@ Home Oak Cafe Online Orders
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">{{ $product->product_name_en }}</a></h3>
+                          <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>

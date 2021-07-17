@@ -88,8 +88,7 @@ return redirect()->route('dashboard')->with($notification);
 
    }//endfunction
     public function ProductDetails($id,$slug){
-    $product = Product::findOrFail($id);
-   
+    $product = Product::findOrFail($id);   
     $multiImag = MultiImg::where('product_id',$id)->get();
     return view('frontend.product.product_details',compact('product','multiImag'));
   }//end method
