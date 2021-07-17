@@ -93,7 +93,7 @@ return redirect()->route('dashboard')->with($notification);
     return view('frontend.product.product_details',compact('product','multiImag'));
   }//end method
   public function TagWiseProduct($tag){
-    $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_fr',$tag)->orderBy('id','DESC')->get();
+    $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_fr',$tag)->orderBy('id','DESC')->paginate(3);
     $categories = Category::orderBy('category_name_en','ASC')->get();
     return view('frontend.tags.tags_view',compact('products','categories'));
   }//END METHOD

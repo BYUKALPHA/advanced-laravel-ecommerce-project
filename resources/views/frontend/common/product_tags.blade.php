@@ -1,6 +1,6 @@
 @php
 $tags_en = App\Models\Product::groupBy('product_tags_en')->select('product_tags_en')->get();
-$tags_hin = App\Models\Product::groupBy('product_tags_fr')->select('product_tags_fr')->get();
+$tags_fr = App\Models\Product::groupBy('product_tags_fr')->select('product_tags_fr')->get();
 @endphp 
      
           
@@ -11,7 +11,8 @@ $tags_hin = App\Models\Product::groupBy('product_tags_fr')->select('product_tags
               <div class="sidebar-widget-body outer-top-xs">
                 <div class="tag-list"> 
                 @if(session()->get('language') == 'french') 
-@foreach($tags_hin as $tag)
+
+@foreach($tags_fr as $tag)
 <a class="item active" title="Phone" href="{{ url('product/tag/'.$tag->product_tags_fr) }}">
      {{ str_replace(',',' ',$tag->product_tags_fr)  }}</a> 
 @endforeach
