@@ -1,7 +1,7 @@
-<!-- ============================================== HEADER ============================================== -->
+<!-- ============== HEADER ================ -->
 <header class="header-style-1"> 
   
-  <!-- ============================================== TOP MENU ============================================== -->
+  <!-- =========== TOP MENU ============= -->
   <div class="top-bar animate-dropdown">
     <div class="container">
       <div class="header-top-inner">
@@ -73,20 +73,20 @@
     <!-- /.container --> 
   </div>
   <!-- /.header-top --> 
-  <!-- ============================================== TOP MENU : END ============================================== -->
+  <!-- ============= TOP MENU : END ================== -->
   <div class="main-header">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
-          <!-- ============================================================= LOGO ============================================================= -->
+          <!-- ================ LOGO ========================= -->
           <div class="logo"> <a href="{{ URL('/') }}"> <img src="{{ asset('frontend/assets/images/logo.png')}}" alt="logo"> </a> </div>
           <!-- /.logo --> 
-          <!-- ============================================================= LOGO : END ============================================================= --> </div>
+          <!-- ============ LOGO : END ================= --> </div>
         <!-- /.logo-holder -->
         
         <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder"> 
           <!-- /.contact-row --> 
-          <!-- ============================================================= SEARCH AREA ============================================================= -->
+          <!-- ============= SEARCH AREA ================ -->
           <div class="search-area">
             <form>
               <div class="control-group">
@@ -106,11 +106,11 @@
             </form>
           </div>
           <!-- /.search-area --> 
-          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+          <!-- ============== SEARCH AREA : END ================== --> </div>
         <!-- /.top-search-holder -->
         
         <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row"> 
-          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+          <!-- ============== SHOPPING CART DROPDOWN ============= -->
           
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
@@ -151,7 +151,7 @@
           </div>
           <!-- /.dropdown-cart --> 
           
-          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
+          <!-- =============== SHOPPING CART DROPDOWN : END============================ --> </div>
         <!-- /.top-cart-row --> 
       </div>
       <!-- /.row --> 
@@ -162,7 +162,7 @@
   </div>
   <!-- /.main-header --> 
   
-  <!-- ============================================== NAVBAR ============================================== -->
+  <!-- ======================= NAVBAR =================================== -->
   <div class="header-nav animate-dropdown">
     <div class="container">
       <div class="yamm navbar navbar-default" role="navigation">
@@ -202,10 +202,12 @@
   @foreach($subcategories as $subcategory)
             <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
 
-
+<a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug_en ) }}">
               <h2 class="title">
 @if(session()->get('language') == 'french') {{ $subcategory->subcategory_name_fr }} @else {{ $subcategory->subcategory_name_en }} @endif
                 </h2>
+</a>
+
 
 
     <!--   // Get SubSubCategory Table Data -->

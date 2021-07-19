@@ -22,10 +22,12 @@
 		<form method="post" action="{{ route('product-store') }}" enctype="multipart/form-data" >
 
 			    @csrf
-					  <div class="row">
-	<div class="col-12">	
 
 
+
+
+<div class="row">
+	<div class="col-12">
 		<div class="row"> <!-- start 1st row  -->
 
 			<div class="col-md-4">

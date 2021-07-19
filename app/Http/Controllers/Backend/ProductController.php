@@ -108,7 +108,7 @@ class ProductController extends Controller
         } // end method
 
 public function EditProduct($id){
-          $multiImgs = MultiImg::where('product_id',$id)->get();
+                $multiImgs = MultiImg::where('product_id',$id)->get();
                 $categories = Category::latest()->get();
                 $brands = Brand::latest()->get();
                 $subcategory = SubCategory::latest()->get();
