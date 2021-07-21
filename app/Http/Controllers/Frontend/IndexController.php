@@ -87,10 +87,23 @@ return redirect()->route('dashboard')->with($notification);
    }
 
    }//endfunction
+
     public function ProductDetails($id,$slug){
-    $product = Product::findOrFail($id);   
+    $product = Product::findOrFail($id); 
+    $color_en = $product->product_color_en;
+    $product_color_en = explode(',', $color_en);
+
+    $color_fr = $product->product_color_fr;
+    $product_color_fr = explode(',', $color_fr);
+
+    $size_en = $product->product_size_en;
+    $product_size_en = explode(',', $size_en);
+
+    $size_fr = $product->product_size_fr;
+    $product_size_fr = explode(',', $size_fr); 
+     
     $multiImag = MultiImg::where('product_id',$id)->get();
-    return view('frontend.product.product_details',compact('product','multiImag'));
+    return view('frontend.product.product_details',compact('product','multiImag','product_color_en','product_color_fr','product_size_en','product_size_fr'));
   }//end method
   public function TagWiseProduct($tag){
     $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_fr',$tag)->orderBy('id','DESC')->paginate(3);
