@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Subcategory Product 
+Sub - Subcategory Product 
 @endsection
 
 
@@ -48,7 +48,7 @@ Subcategory Product
  @foreach($categories as $category)
 	<div class="accordion-group">
 	<div class="accordion-heading"> <a href="#collapse{{ $category->id }}" data-toggle="collapse" class="accordion-toggle collapsed"> 
-		@if(session()->get('language') == 'french') {{ $category->category_name_fr }} @else {{ $category->category_name_en }} @endif </a> </div>
+		@if(session()->get('language') == 'hindi') {{ $category->category_name_hin }} @else {{ $category->category_name_en }} @endif </a> </div>
 	<!-- /.accordion-heading -->
 	<div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
 	  <div class="accordion-inner">
@@ -60,7 +60,7 @@ Subcategory Product
    @foreach($subcategories as $subcategory)
 	    <ul>
 	      <li><a href="{{ url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug_en ) }}">
-	      	@if(session()->get('language') == 'french') {{ $subcategory->subcategory_name_fr }} @else {{ $subcategory->subcategory_name_en }} @endif</a></li>
+	      	@if(session()->get('language') == 'hindi') {{ $subcategory->subcategory_name_hin }} @else {{ $subcategory->subcategory_name_en }} @endif</a></li>
 
 	    </ul>
 	@endforeach 
@@ -311,7 +311,7 @@ Subcategory Product
 
         <div class="product-info text-left">
           <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-          	@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif</a></h3>
+          	@if(session()->get('language') == 'hindi') {{ $product->product_name_hin }} @else {{ $product->product_name_en }} @endif</a></h3>
           <div class="rating rateit-small"></div>
           <div class="description"></div>
 
@@ -401,7 +401,7 @@ Subcategory Product
         <div class="col col-sm-8 col-lg-8">
           <div class="product-info">
             <h3 class="name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-            	@if(session()->get('language') == 'french') {{ $product->product_name_fr }} @else {{ $product->product_name_en }} @endif</a></h3>
+            	@if(session()->get('language') == 'hindi') {{ $product->product_name_hin }} @else {{ $product->product_name_en }} @endif</a></h3>
             <div class="rating rateit-small"></div>
 
 
@@ -413,7 +413,7 @@ Subcategory Product
 
             <!-- /.product-price -->
             <div class="description m-t-10">
-            	@if(session()->get('language') == 'french') {{ $product->short_descp_fr }} @else {{ $product->short_descp_en }} @endif</div>
+            	@if(session()->get('language') == 'hindi') {{ $product->short_descp_hin }} @else {{ $product->short_descp_en }} @endif</div>
             <div class="cart clearfix animate-effect">
               <div class="action">
                 <ul class="list-unstyled">

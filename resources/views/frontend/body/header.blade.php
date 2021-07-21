@@ -217,7 +217,8 @@
 
    @foreach($subsubcategories as $subsubcategory)
               <ul class="links">
-  <li><a href="#">
+  <li><a href="// Frontend Sub-SubCategory wise Data
+Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::class, 'SubSubCatWiseProduct']);">
 @if(session()->get('language') == 'french') {{ $subsubcategory->subsubcategory_name_fr }} @else {{ $subsubcategory->subsubcategory_name_en }} @endif
                   </a></li>
 

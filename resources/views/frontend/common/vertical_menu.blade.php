@@ -40,7 +40,7 @@ $categories = App\Models\Category::orderBy('category_name_en','ASC')->get();
 
    @foreach($subsubcategories as $subsubcategory)         
                         <ul class="links list-unstyled">
-                          <li><a href="#">
+                          <li><a href="{{ url('subsubcategory/product/'.$subsubcategory->id.'/'.$subsubcategory->subsubcategory_slug_en ) }}">
      @if(session()->get('language') == 'french') {{ $subsubcategory->subsubcategory_name_fr }} @else {{ $subsubcategory->subsubcategory_name_en }} @endif</a></li>
 
                         </ul>
