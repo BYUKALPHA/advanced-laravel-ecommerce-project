@@ -8,7 +8,7 @@
     <meta name="author" content="">
     
 
-    <title>Quick Pick  Admin - Dashboard</title>
+    <title>Alpha Ecommerce | Dashboard</title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css')}}">
@@ -20,7 +20,7 @@
 	  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
   <!-- FAVICON -->
-  <link href="{{ asset('backend/images/favicon.ico')}}" rel="shortcut icon" />
+  <link href="{{ asset('backend/images/logo-dark.png')}}" rel="shortcut icon" />
 
      
   </head>

@@ -12,19 +12,19 @@ use App\Models\Product;
 use App\Models\MultiImg;
 use Carbon\Carbon;
 use Image;
+use DB;
+
 
 class ProductController extends Controller
 {
-        public function AddProduct(){
+public function AddProduct(){
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
         return view('backend.product.product_add',compact('categories','brands'));
+}//end method
 
 
-    }//end method
-
-
-    public function StoreProduct(Request $request){
+public function StoreProduct(Request $request){
 
         $image = $request->file('product_thambnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -197,7 +197,7 @@ public function ProductDataUpdate(Request $request){
   } // end mehtod 
 
   /// Product Main Thambnail Update /// 
- public function ThambnailImageUpdate(Request $request){
+public function ThambnailImageUpdate(Request $request){
   $pro_id = $request->id;
   $oldImage = $request->old_img;
   unlink($oldImage);
@@ -224,7 +224,7 @@ public function ProductDataUpdate(Request $request){
 
 
      //// Multi Image Delete ////
-     public function MultiImageDelete($id){
+public function MultiImageDelete($id){
       $oldimg = MultiImg::findOrFail($id);
       unlink($oldimg->photo_name);
       MultiImg::findOrFail($id)->delete();
@@ -238,7 +238,7 @@ public function ProductDataUpdate(Request $request){
 
      } // end method 
 
-      public function ProductInactive($id){
+public function ProductInactive($id){
       Product::findOrFail($id)->update(['status' => 0]);
       $notification = array(
       'message' => 'Product Inactive',
@@ -249,7 +249,7 @@ public function ProductDataUpdate(Request $request){
      }
 
 
-  public function ProductActive($id){
+public function ProductActive($id){
     Product::findOrFail($id)->update(['status' => 1]);
       $notification = array(
       'message' => 'Product Active',
@@ -259,7 +259,7 @@ public function ProductDataUpdate(Request $request){
     return redirect()->back()->with($notification);
 
      }//end method
-       public function ProductDelete($id){
+public function ProductDelete($id){
       $product = Product::findOrFail($id);
       unlink($product->product_thambnail);
       Product::findOrFail($id)->delete();
@@ -279,5 +279,15 @@ public function ProductDataUpdate(Request $request){
 
      }// end method 
 
+public function ViewProduct($id){
+                $multiImgs = MultiImg::where('product_id',$id)->get();
+                $categories = Category::latest()->get();
+                $brands = Brand::latest()->get();
+                $subcategory = SubCategory::latest()->get();
+                $subsubcategory = SubSubCategory::latest()->get();
+                $products = Product::findOrFail($id);
+             return view('backend.product.Show_product',compact('categories','brands','subcategory','subsubcategory','products','multiImgs'));
+
+} // end method
     
 }

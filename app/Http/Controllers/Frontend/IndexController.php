@@ -11,6 +11,7 @@ use App\Models\Slider;
 use App\Models\Product;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\Newsletter;
 use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
@@ -33,16 +34,16 @@ class IndexController extends Controller
 
       return view('frontend.index',compact('categories','sliders','products','featured','hot_deals','special_offer','special_deals','skip_category_0','skip_product_0','skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1'));
    }
-   public function UserLogout(){
+public function UserLogout(){
       Auth::logout();
       return redirect()->route('login');
    }
-   public function UserProfile(){
+public function UserProfile(){
       $id = Auth::user()->id;
       $user = User::find($id);
       return view('frontend.profile.user_profile',compact('user'));
    }
-   public function UserProfileStore(Request $request){
+public function UserProfileStore(Request $request){
 
 $data = User::find(Auth::user()->id);
 $data -> name = $request->name;
@@ -103,8 +104,11 @@ return redirect()->route('dashboard')->with($notification);
     $product_size_fr = explode(',', $size_fr); 
      
     $multiImag = MultiImg::where('product_id',$id)->get();
-    return view('frontend.product.product_details',compact('product','multiImag','product_color_en','product_color_fr','product_size_en','product_size_fr'));
-  }//end method
+    $cat_id = $product->category_id;
+    $relatedProduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
+    return view('frontend.product.product_details',compact('product','multiImag','product_color_en','product_color_fr','product_size_en','product_size_fr','relatedProduct'));
+
+    }//end method
   public function TagWiseProduct($tag){
     $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_fr',$tag)->orderBy('id','DESC')->paginate(3);
     $categories = Category::orderBy('category_name_en','ASC')->get();
@@ -127,4 +131,20 @@ return redirect()->route('dashboard')->with($notification);
 
   }//end method
 
+public function NewsLettersStore(Request $request){
+$request->validate([
+    'email' => 'required|unique:newsletters|max:55',
+
+],[
+ 'email.required' => 'Please your email is required', 
+]);
+Newsletter::insert([
+'email' => $request->email
+]);
+$notification = array(
+'message' => 'Thank you for your subscription',
+'alert-type' => 'success'
+);
+return redirect()->back()->with($notification);
+}// end method
 }

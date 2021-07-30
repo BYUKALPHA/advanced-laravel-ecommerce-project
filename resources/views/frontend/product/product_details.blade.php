@@ -15,23 +15,24 @@
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
 </div><!-- /.breadcrumb -->
+
 <div class="body-content outer-top-xs">
 	<div class='container'>
 		<div class='row single-product'>
 			<div class='col-md-3 sidebar'>
+
+
 				<div class="sidebar-module-container">
 				<div class="home-banner outer-top-n">
-<img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image">
-</div>		
-  
-    
+                 <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image">
+                </div>	  
     
     	<!-- ================ HOT DEALS =========================== -->
-<div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
-	<h3 class="section-title">hot deals</h3>
-	<div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
+			<div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
+				<h3 class="section-title">hot deals</h3>
+				<div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
 		
-														<div class="item">
+				<div class="item">
 					<div class="products">
 						<div class="hot-deal-wrapper">
 							<div class="image">
@@ -397,11 +398,15 @@
 
 
 							<div class="quantity-container info-container">
-		<div class="row">			 
-	
+		<div class="row">
+			 <!--     /// Add Product Color And Product Size ///// -->
+	<div class="row">
+
+		</div><!-- /.row -->
 			</div><!-- /.quantity-container -->
 
 <div class="col-sm-6">
+
 <div class="form-group">
 
 	<label class="info-title control-label">Choose Color <span> </span></label>
@@ -965,7 +970,7 @@
 		</div><!-- /.item -->
 			</div><!-- /.home-owl-carousel -->
 </section><!-- /.section -->
-<!-- ============================================== UPSELL PRODUCTS : END ============================================== -->
+<!-- ================ UPSELL PRODUCTS : END ================= -->
 			
 			</div><!-- /.col -->
 			<div class="clearfix"></div>

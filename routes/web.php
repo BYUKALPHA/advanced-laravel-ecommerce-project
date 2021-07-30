@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Admin\Category\CouponController;
+use App\Http\Controllers\Admin\PostController;
 use App\Models\User;
 
 
@@ -81,13 +83,15 @@ Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'SubSubCategor
 });
 
 
-// Admin Products All Routes 
+// Admin Products All Routes product.view
 
 Route::prefix('product')->group(function(){
 
 Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
 Route::post('/store', [ProductController::class, 'StoreProduct'])->name('product-store');
 Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
+Route::get('/View/{id}', [ProductController::class, 'ViewProduct'])->name('product.view');
+Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
 Route::get('/edit/{id}', [ProductController::class, 'EditProduct'])->name('product.edit');
 Route::post('/data/update', [ProductController::class, 'ProductDataUpdate'])->name('product-update');
 Route::post('/image/update', [ProductController::class, 'MultiImageUpdate'])->name('update-product-image');
@@ -112,7 +116,52 @@ Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('sli
 
 });
 
+// Admin BLOG All Routes 
+// Admin posts Category All Routes 
+Route::prefix('blog')->group(function(){
+Route::get('/category/List', [PostController::class, 'BlogCatList'])->name('manage-blog');
+Route::post('/category/store', [PostController::class, 'BlogCatStore'])->name('blog_category.store');
+Route::get('/category/edit/{id}', [PostController::class, 'BlogCatEdit'])->name('blog.category.edit');
+Route::post('/category/update/{id}', [PostController::class, 'BlogCatUpdate'])->name('blog.category.update');
+Route::get('/category/delete/{id}', [PostController::class, 'BlogCatDelete'])->name('blog.category.delete');
+
+// Admin posts All Routes 
+Route::get('/post/List', [PostController::class, 'PostList'])->name('all.blogpost');
+Route::get('/post/add', [PostController::class, 'PostAdd'])->name('add.blogpost');
+Route::post('/post/store', [PostController::class, 'PostStore'])->name('post.store');
+Route::get('/post/edit/{id}', [PostController::class, 'PostEdit'])->name('blog.category.edit');
+Route::post('/post/update/{id}', [PostController::class, 'PostUpdate'])->name('blog.category.update');
+Route::get('/post/delete/{id}', [PostController::class, 'PostDelete'])->name('blog.category.delete');
+});
+
+
+// Admin Coupons All Routes 
+
+Route::prefix('coupon')->group(function(){
+Route::get('/view', [CouponController::class, 'CouponView'])->name('manage-coupon');
+Route::post('/store', [CouponController::class, 'CouponStore'])->name('coupon.store');
+Route::get('/edit/{id}', [CouponController::class, 'CouponEdit'])->name('coupon.edit');
+Route::post('/update', [CouponController::class, 'CouponUpdate'])->name('coupon.update');
+Route::get('/delete/{id}', [CouponController::class, 'CouponDelete'])->name('coupon.delete');
+Route::get('/inactive/{id}', [CouponController::class, 'CouponInactive'])->name('coupon.inactive');
+Route::get('/active/{id}', [CouponController::class, 'CouponActive'])->name('coupon.active');
+
+});
+
+// Admin Newsletters All Routes 
+
+Route::prefix('newsletter')->group(function(){
+Route::get('/view', [CouponController::class, 'NewsletterView'])->name('manage-newsletter');
+Route::post('/store', [CouponController::class, 'NewsletterStore'])->name('newsletter.store');
+Route::get('/edit/{id}', [CouponController::class, 'NewsletterEdit'])->name('newsletter.edit');
+Route::post('/update', [CouponController::class, 'NewsletterUpdate'])->name('newsletter.update');
+Route::get('/delete/{id}', [CouponController::class, 'NewsletterDelete'])->name('newsletter.delete');
+});
+
 });  // end Middleware admin
+
+
+
 
 
 
@@ -122,6 +171,8 @@ Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('sli
 Route::get('/language/french', [LanguageController::class, 'french'])->name('french.language');
 
 Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language'); 
+
+
 
 
 //user all routes
@@ -151,3 +202,8 @@ Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, '
 
 // Frontend Sub-SubCategory wise Data
 Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::class, 'SubSubCatWiseProduct']);
+
+
+
+// Frontend Newsletter 
+Route::post('/user/newsletter', [IndexController::class, 'NewsLettersStore'])->name('newsletter.store');

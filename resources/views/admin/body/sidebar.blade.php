@@ -15,7 +15,7 @@ $route = Route::current()->getName();
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{ asset('backend/images/logo-dark.png')}}" alt="">
-						  <h3><b>Quick Pick</b> eShop</h3>
+						  <h3><b>Alpha Dotcom</b> eShop</h3>
 					 </div>
 				</a>
 			</div>
@@ -86,9 +86,35 @@ $route = Route::current()->getName();
           </a>
           <ul class="treeview-menu">
             <li class="{{ ($route == 'manage-slider')? 'active':'' }}"><a href="{{ route('manage-slider') }}"><i class="ti-more"></i>Manage Slider</a></li>
+          </ul>
+        </li> 
 
+            <li class="treeview {{ ($prefix == '/blog')?'active':'' }}  ">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>Blog</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'manage-blog')? 'active':'' }}"><a href="{{ route('manage-blog') }}"><i class="ti-more"></i>Blog Category</a></li>
+            <li class=""><a href="{{ route('add.blogpost') }}"><i class="ti-more"></i>Add Posts</a></li>
+               <li class=""><a href="{{ route('all.blogpost') }}"><i class="ti-more"></i>Posts List</a></li>
+          </ul>
+        </li> 
 
-
+           <li class="treeview {{ ($prefix == '/coupon')?'active':'' }}  ">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>Others</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'manage-coupon')? 'active':'' }}"><a href="{{ route('manage-coupon') }}"><i class="ti-more"></i>Coupons</a></li> 
+              <li class="{{ ($route == 'manage-newsletter')? 'active':'' }}"><a href="{{ route('manage-newsletter') }}"><i class="ti-more"></i>Newsletters</a></li>            
           </ul>
         </li>      		  
 		 
