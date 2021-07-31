@@ -129,9 +129,9 @@ Route::get('/category/delete/{id}', [PostController::class, 'BlogCatDelete'])->n
 Route::get('/post/List', [PostController::class, 'PostList'])->name('all.blogpost');
 Route::get('/post/add', [PostController::class, 'PostAdd'])->name('add.blogpost');
 Route::post('/post/store', [PostController::class, 'PostStore'])->name('post.store');
-Route::get('/post/edit/{id}', [PostController::class, 'PostEdit'])->name('blog.category.edit');
-Route::post('/post/update/{id}', [PostController::class, 'PostUpdate'])->name('blog.category.update');
-Route::get('/post/delete/{id}', [PostController::class, 'PostDelete'])->name('blog.category.delete');
+Route::get('/post/edit/{id}', [PostController::class, 'PostEdit'])->name('post.edit');
+Route::post('/post/update/{id}', [PostController::class, 'PostUpdate'])->name('post.update');
+Route::get('/post/delete/{id}', [PostController::class, 'PostDelete'])->name('post.delete');
 });
 
 
