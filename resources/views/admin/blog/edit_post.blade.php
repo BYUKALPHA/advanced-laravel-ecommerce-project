@@ -84,7 +84,7 @@ $blogcategory = DB::table('post_categories')->get();
 	    <div class="form-group">
 			<h5>Post Image <span class="text-danger">*</span></h5>
 			<div class="controls">	
-			 <input type="file" name="post_image" class="form-control" onChange="mainThamUrl(this)" required="">
+			 <input type="file" name="post_image" class="form-control" onChange="mainThamUrl(this)">
 		     @error('post_image') 
 			 <span class="text-danger">{{ $message }}</span>
 			 @enderror
@@ -110,7 +110,7 @@ $blogcategory = DB::table('post_categories')->get();
 	          <div class="form-group">
 			<h5>Post Details English <span class="text-danger">*</span></h5>
 			<div class="controls">
-			<textarea id="editor1" name="details_en" rows="10" cols="80" required="">
+			<textarea id="editor1" name="details_en" rows="10" cols="80" >
 				{!! $post->details_en !!}
 			</textarea>  
 	 		 </div>
@@ -120,7 +120,7 @@ $blogcategory = DB::table('post_categories')->get();
 	     <div class="form-group">
 			<h5>Post Details French <span class="text-danger">*</span></h5>
 			<div class="controls">			
-			<textarea id="editor2" name="details_fr" rows="10" cols="80" required="">
+			<textarea id="editor2" name="details_fr" rows="10" cols="80" >
 				{!! $post->details_fr !!}
 			</textarea>       
 	 		 	 </div>
@@ -135,7 +135,7 @@ $blogcategory = DB::table('post_categories')->get();
   </div>
 
 		<div class="text-xs-right">
-       <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Post">
+       <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Post">
        </div>
 	</form>
 

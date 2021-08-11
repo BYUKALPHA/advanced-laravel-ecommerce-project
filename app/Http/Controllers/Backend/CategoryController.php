@@ -18,7 +18,7 @@ public function CategoryStore(Request $request){
 $request->validate([
     'category_name_en' => 'required',
      'category_name_fr' => 'required',
-    'category_icon' => 'required',
+ 
 ],[
  'category_name_en.required' => 'Input Category English Name',
  'category_name_fr.required' => 'Input Category French Name',

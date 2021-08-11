@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ItemController;
 use App\Models\User;
 
 
@@ -91,7 +92,6 @@ Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product'
 Route::post('/store', [ProductController::class, 'StoreProduct'])->name('product-store');
 Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
 Route::get('/View/{id}', [ProductController::class, 'ViewProduct'])->name('product.view');
-Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
 Route::get('/edit/{id}', [ProductController::class, 'EditProduct'])->name('product.edit');
 Route::post('/data/update', [ProductController::class, 'ProductDataUpdate'])->name('product-update');
 Route::post('/image/update', [ProductController::class, 'MultiImageUpdate'])->name('update-product-image');
@@ -100,6 +100,19 @@ Route::get('/multiimg/delete/{id}', [ProductController::class, 'MultiImageDelete
 Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
 Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
 Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
+
+});
+Route::prefix('item')->group(function(){
+Route::get('/add', [ItemController::class, 'AddItem'])->name('add-item');
+Route::post('/store', [ItemController::class, 'Itemstore'])->name('item-store');
+Route::get('/all', [ItemController::class, 'AllItem'])->name('all-item');
+Route::get('/View/{id}', [ItemController::class, 'ViewItem'])->name('item.view');
+Route::get('/edit/{id}', [ItemController::class, 'EditItem'])->name('item.edit');
+Route::post('/data/update/{id}', [ItemController::class, 'UpdateProductwithoutphoto'])->name('item-update');
+Route::post('/photo/update/{id}', [ItemController::class, 'Updatephoto'])->name('photo-update');
+Route::get('/inactive/{id}', [ItemController::class, 'ItemInactive'])->name('item.inactive');
+Route::get('/active/{id}', [ItemController::class, 'ItemActive'])->name('item.active');
+Route::get('/delete/{id}', [ItemController::class, 'ItemDelete'])->name('item.delete');
 
 });
 

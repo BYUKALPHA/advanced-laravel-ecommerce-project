@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\SubCategory;
 use App\Models\Category;
 use App\Models\SubSubCategory;
+use DB;
 
 class SubCategoryController extends Controller
 {
     public function SubCategoryView(){
 
-        $categories = Category::orderBy('category_name_en','ASC')->get();
-        $subcategory = SubCategory::latest()->get();
-        return view('backend.category.subcategory_view',compact('subcategory','categories'));
+$categories = Category::orderBy('category_name_en','ASC')->get();
+     
+ $subcat = DB::table('sub_categories')
+  ->join('categories','sub_categories.category_id','categories.id')
+  ->select('sub_categories.*','categories.category_name_en')
+  ->get();
+        return view('backend.category.subcategory_view',compact('subcat','categories'));
 
     }
 

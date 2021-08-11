@@ -26,7 +26,7 @@
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Category </th>
+                                <th>Category Name </th>
                                 <th>SubCategory En</th>
                                 <th>SubCategory Fr </th>
                                 <th>Action</th>
@@ -34,9 +34,9 @@
                             </tr>
                         </thead>
                         <tbody>
-     @foreach($subcategory as $item)
+     @foreach($subcat as $item)
      <tr>
-        <td> {{ $item->category_id }}  </td>
+        <td> {{ $item->category_name_en }}  </td>
         <td>{{ $item->subcategory_name_en }}</td>
          <td>{{ $item->subcategory_name_fr }}</td>
         <td>
