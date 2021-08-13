@@ -32,7 +32,7 @@
 								<th>Product Name</th>	
 								<th>Brand</th>					
 								<th>Category</th>
-								<th>Qty </th>
+				
 								<th>Price </th>
 								<th>Discount </th>
 								<th>Status </th>
@@ -46,7 +46,7 @@
 		<td>{{ $item->product_name }}</td>
 		<td>{{ $item->brand_name_en }} </td>
 		<td>{{ $item->category_name_en }} </td>
-		<td>{{ $item->product_quantity }} PCS</td>
+	
 		<td>UGX {{ $item->selling_price }}</td>
 		 <td> 
 		 	@if($item->discount_price == NULL)

@@ -220,7 +220,8 @@ $subcategory = DB::table('sub_categories')->get();
 	    <div class="form-group">
 			<h5>Product Details <span class="text-danger">*</span></h5>
 			<div class="controls">
-	<textarea id="editor1" name="product_details" rows="10" cols="80" required="" value="{!! $product->product_details !!}"></textarea>  
+	<textarea id="editor1" name="product_details" rows="10" cols="80" required="" 
+	value="{!! $product->product_details !!}"></textarea>  
 	 		 </div>
 		</div>				 
 </div> <!-- col-lg-12  -->
