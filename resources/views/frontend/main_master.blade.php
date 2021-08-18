@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Alpha Dotcom Ecommerce</title>
+<title>Alpha Eshop</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="AlphaDotcom Ecommerce project">
@@ -17,6 +17,9 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/responsive.css') }}">
 <!-- toastr--> 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+<!-- sweetalert--> 
+<link rel="stylesheet" href="sweetalert2.min.css">
  <!-- FAVICON -->
   <link href="{{ asset('backend/images/logo-dark.png')}}" rel="shortcut icon" />
 
@@ -59,9 +62,31 @@
                                 </ul>
                             </div>
                             <div class="top_bar_user">
-                                <div class="user_icon"><img src="{{ asset('frontend/images/user.svg')}}" alt=""></div>
-                                <div><a href="{{ route('register') }}">Register</a></div>
-                                <div><a href="{{ route('login') }}">Sign in</a></div>
+                                @guest
+                                <div><a href="{{ route('register') }}"><div class="user_icon"><img src="{{ asset('frontend/images/user.svg')}}" alt=""></div>Register</a></div>
+                                <div><a href="{{ route('login') }}">                             
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                Sign in</a></div>
+                                @else
+
+                             <ul class="standard_dropdown top_bar_dropdown">
+                                    <li>
+                                        <a href="{{ route('user.profile') }}"><div class="user_icon"><img src="{{ asset('frontend/images/alpha.jpg')}}" alt=""></div>Profile<i class="fas fa-chevron-down"></i></a>
+                                        <ul>
+                                            <li><a href="#">WishList</a></li>
+                                            <li><a href="#">Checkout</a></li>
+                                            <li><a href="#">Others</a></li>
+                                          <li><a href="{{ route('user.logout') }}">Logout</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                  
+                                </ul>
+
+                                @endguest
+
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -123,8 +148,8 @@ $category = DB::table('categories')->get();
                             <!-- Cart -->
                             <div class="cart">
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
-                                    <div class="cart_icon">
-                                        <img src="images/cart.png" alt="">
+                                    <div class="cart_icon">                                       
+                                        <img src="{{ asset('frontend/images/cart.png')}}" alt="">
                                         <div class="cart_count"><span>10</span></div>
                                     </div>
                                     <div class="cart_content">
@@ -269,6 +294,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- toastr -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- AJAX -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
  @if(Session::has('message'))

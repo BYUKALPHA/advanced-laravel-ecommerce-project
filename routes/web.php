@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Admin\Category\CouponController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\WishlistController;
 use App\Models\User;
 
 
@@ -188,7 +189,7 @@ Route::get('/language/english', [LanguageController::class, 'English'])->name('e
 
 
 
-//user all routes
+//USER ALL ROUTES
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
 	  $id = Auth::user()->id;
       $user = User::find($id);
@@ -220,3 +221,6 @@ Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::cl
 
 // Frontend Newsletter 
 Route::post('/user/newsletter', [IndexController::class, 'NewsLettersStore'])->name('newsletter.store');
+
+// Add wishlist
+Route::get('add/wishlist/{id}', [WishlistController::class, 'AddWishlist']);

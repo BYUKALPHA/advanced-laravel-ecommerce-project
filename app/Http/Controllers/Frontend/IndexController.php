@@ -36,7 +36,11 @@ class IndexController extends Controller
    }
 public function UserLogout(){
       Auth::logout();
-      return redirect()->route('login');
+      $notification = array(
+'message' => 'Logout was successfully',
+'alert-type' => 'success'
+);
+return redirect()->route('login')->with($notification);
    }
 public function UserProfile(){
       $id = Auth::user()->id;

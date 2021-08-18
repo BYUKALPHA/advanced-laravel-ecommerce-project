@@ -252,7 +252,7 @@
 	</div>
   </div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="form-group">
 				
 				<div class="controls">
@@ -267,7 +267,7 @@
 		</div>								
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="form-group">
 				
 			<div class="controls">
@@ -282,7 +282,7 @@
 		</div>
 			</div>
 		</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 			<div class="form-group">
 				
 			<div class="controls">
@@ -297,7 +297,18 @@
 		</div>
 			</div>
 		</div>
-
+<div class="col-md-3">
+			<div class="form-group">
+				
+			<div class="controls">
+			<fieldset>
+				<input type="checkbox" id="checkbox_8" name="buyone_getone" value="1">
+				<label for="checkbox_8">Buy One get One</label>
+			</fieldset>
+			
+		</div>
+			</div>
+		</div>
 
 
 						</div>

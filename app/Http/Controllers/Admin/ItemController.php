@@ -43,6 +43,7 @@ public function Itemstore(Request $request){
     $data['best_rated'] = $request->best_rated;
     $data['mid_slider'] = $request->mid_slider;
     $data['hot_new'] = $request->hot_new;
+    $data['buyone_getone'] = $request->buyone_getone;
     $data['trend'] = $request->trend;
     $data['status'] = 1;
    
@@ -142,6 +143,7 @@ public function UpdateProductwithoutphoto (Request $request,$id){
     $data['best_rated'] = $request->best_rated;
     $data['mid_slider'] = $request->mid_slider;
     $data['hot_new'] = $request->hot_new;
+      $data['buyone_getone'] = $request->buyone_getone;
     $data['trend'] = $request->trend;    
 
     $update = DB::table('items')->where('id',$id)->update($data);

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li class='active'>Login</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -18,12 +18,12 @@
         <div class="sign-in-page">
             <div class="row">
                 <!-- Sign-in -->            
-<div class="col-md-6 col-sm-6 sign-in">
-    <h4 class="">Sign in</h4>
-    <p class="">Hello, Welcome to your account.</p>
+<div class="col-md-5 col-sm-5 sign-in offset-lg-1" style="border:1px solid grey; padding: 20px;
+border-radius:25px;">
+    <h4 class="text-center">Sign in</h4>
+   
     <div class="social-sign-in outer-top-xs">
-        <a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
-        <a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
+        
     </div>
  <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
             @csrf
@@ -31,10 +31,18 @@
             <label class="info-title" for="exampleInputEmail1"
             >Email Address <span>*</span></label>
             <input class="form-control unicase-form-control text-input" id="email" type="email" name="email">
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                @enderror
         </div>
         <div class="form-group">
             <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
             <input class="form-control unicase-form-control text-input" id="password" type="password" name="password" >
+             @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                @enderror
         </div>
         <div class="radio outer-xs">
             <label>
@@ -43,14 +51,27 @@
             <a href="{{ route('password.request') }}" class="forgot-password pull-right">Forgot your Password?</a>
         </div>
         <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
-    </form>                 
+    </form>  
+<br>
+<a href="{{ route('password.request') }}">I forgot my password</a><br><br>
+<button type="submit" class="btn btn-primary btn-block"><i class="fab fa-facebook-square"></i>
+Login with Facebook</button>
+<button type="submit" class="btn btn-danger btn-block"><i class="fab fa-google"></i>
+Login with Google</button>
+
+
+
+
 </div>
 <!-- Sign-in -->
 
+
+
 <!-- create a new account -->
-<div class="col-md-6 col-sm-6 create-new-account">
-    <h4 class="checkout-subtitle">Create a new account</h4>
-    <p class="text title-tag-line">Create your new account.</p>
+<div class="col-md-5 col-sm-5 create-new-account offset-lg-1" style="border:1px solid grey; padding: 20px;
+border-radius:25px;">
+    <h4 class="checkout-subtitle text-center">Create a new account</h4>
+  
   <form method="POST" action="{{ route('register') }}">
             @csrf
           <div class="form-group">
